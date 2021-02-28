@@ -8,7 +8,8 @@ import { MainComponent } from './components/main/main.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsContentComponent } from './components/news-content/news-content.component';
 import { PublishAtPipe } from './pipes/publish-at.pipe';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,9 @@ import { PublishAtPipe } from './pipes/publish-at.pipe';
     PublishAtPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
