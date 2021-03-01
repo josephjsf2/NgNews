@@ -44,7 +44,7 @@ export class NewsService {
    * 取得類別
    */
   getCategories(): string[] {
-    return ['Business', 'Entertainment', 'General', 'Healthy', 'Science', 'Sports', 'Technology'];
+    return ['Business', 'Entertainment', 'General', 'Health', 'Science', 'Sports', 'Technology'];
   }
 
   /**
