@@ -1,5 +1,12 @@
+import { QueryParams } from './../models/query-params.model';
+import { HeadlineResponse } from './../models/headline-response.model';
 import { CountryOption } from './../models/country-option.model';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators'
+import { News } from '../models/news.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +15,41 @@ export class NewsService {
 
   apiUrl = 'https://newsapi.org/v2/top-headlines';
 
-  constructor() { }
+  queryParam: QueryParams = {
+    country: 'us',
+    category: 'Business',
+    q: '',
+    pageSize: 100,
+    apiKey: '5c272dc78f954b94855e059b7e2dabc2'
+  };
 
+  constructor(private http: HttpClient) { }
+
+  /**
+   * 取得 News API Observable
+   */
+  getNewsData(): Observable<any> {
+    return this.http.get<HeadlineResponse>(`${this.apiUrl}?country=${this.queryParam.country}&category=${this.queryParam.category}&q=${this.queryParam.q}&apiKey=${this.queryParam.apiKey}&pageSize=${this.queryParam.pageSize}`);
+  }
+
+  /**
+   * 更新API 查詢參數
+   * @param params 欲更新參數
+   */
+  updateQueryParam(params: QueryParams): void {
+    this.queryParam = { ...this.queryParam, ...params };
+  }
+
+  /**
+   * 取得類別
+   */
   getCategories(): string[] {
     return ['Business', 'Entertainment', 'General', 'Healthy', 'Science', 'Sports', 'Technology'];
   }
 
+  /**
+   * 取得國家代碼清單
+   */
   getCountries(): CountryOption[] {
     return [
       { code: 'ar', name: 'Argentina' },
