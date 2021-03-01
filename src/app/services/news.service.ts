@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class NewsService {
 
-
+  apiUrl = 'https://newsapi.org/v2/top-headlines';
 
   constructor() { }
 
