@@ -5,7 +5,7 @@ import { CountryOption } from './../models/country-option.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { delay, map } from 'rxjs/operators'
 import { News } from '../models/news.model';
 import { mockNewsData } from '../mock/news.mock';
 
@@ -37,7 +37,7 @@ export class NewsService {
    * 取得 News API Observable
    */
   getNewsData(): Observable<HeadlineResponse> {
-    return of(mockNewsData);
+    return of(mockNewsData).pipe(delay(1000));  // 模擬網路 delay
     // return this.http.get<HeadlineResponse>(`${this.apiUrl}?country=${this.queryParam.country}&category=${this.queryParam.category}&q=${this.queryParam.q}&apiKey=${this.queryParam.apiKey}&pageSize=${this.queryParam.pageSize}`);
   }
 
