@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { QueryParams } from './../models/query-params.model';
 import { HeadlineResponse } from './../models/headline-response.model';
 import { CountryOption } from './../models/country-option.model';
@@ -21,8 +22,11 @@ export class NewsService {
     category: 'Business',
     q: '',
     pageSize: 100,
-    apiKey: '5c272dc78f954b94855e059b7e2dabc2'
+    apiKey: environment.apiKey
   };
+
+  newsChangedSubject: Subject<News> = new Subject();
+  newsChanged$ = this.newsChangedSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -30,8 +34,8 @@ export class NewsService {
    * 取得 News API Observable
    */
   getNewsData(): Observable<any> {
-    // return this.http.get<HeadlineResponse>(`${this.apiUrl}?country=${this.queryParam.country}&category=${this.queryParam.category}&q=${this.queryParam.q}&apiKey=${this.queryParam.apiKey}&pageSize=${this.queryParam.pageSize}`);
     return of(mockNewsData);
+    // return this.http.get<HeadlineResponse>(`${this.apiUrl}?country=${this.queryParam.country}&category=${this.queryParam.category}&q=${this.queryParam.q}&apiKey=${this.queryParam.apiKey}&pageSize=${this.queryParam.pageSize}`);
   }
 
   /**
