@@ -3,9 +3,10 @@ import { HeadlineResponse } from './../models/headline-response.model';
 import { CountryOption } from './../models/country-option.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
 import { map } from 'rxjs/operators'
 import { News } from '../models/news.model';
+import { mockNewsData } from '../mock/news.mock';
 
 
 @Injectable({
@@ -29,7 +30,8 @@ export class NewsService {
    * 取得 News API Observable
    */
   getNewsData(): Observable<any> {
-    return this.http.get<HeadlineResponse>(`${this.apiUrl}?country=${this.queryParam.country}&category=${this.queryParam.category}&q=${this.queryParam.q}&apiKey=${this.queryParam.apiKey}&pageSize=${this.queryParam.pageSize}`);
+    // return this.http.get<HeadlineResponse>(`${this.apiUrl}?country=${this.queryParam.country}&category=${this.queryParam.category}&q=${this.queryParam.q}&apiKey=${this.queryParam.apiKey}&pageSize=${this.queryParam.pageSize}`);
+    return of(mockNewsData);
   }
 
   /**
