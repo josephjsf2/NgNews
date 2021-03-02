@@ -10,6 +10,7 @@ export class NewsContentComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit(): void {
+    // 訂閱 newsChanged$
   }
 
   ngOnDestroy(): void {
