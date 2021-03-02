@@ -28,6 +28,9 @@ export class NewsService {
   newsChangedSubject: Subject<News> = new Subject();
   newsChanged$ = this.newsChangedSubject.asObservable();
 
+  paramChangedSubject: Subject<void> = new Subject();
+  paramChanged$ = this.paramChangedSubject.asObservable();
+
   constructor(private http: HttpClient) { }
 
   /**
@@ -43,7 +46,12 @@ export class NewsService {
    * @param params 欲更新參數
    */
   updateQueryParam(params: QueryParams): void {
+    /**
+     * {...{name: 'Peter', age: 20},...{age:40}} => {name:'Peter', age:40}
+     */
+    console.log('Before update query param', this.queryParam, params)
     this.queryParam = { ...this.queryParam, ...params };
+    console.log('After update query param', this.queryParam)
   }
 
   /**

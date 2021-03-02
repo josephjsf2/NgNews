@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   onCountryChanged(code: string): void {
     this.activeCountry = code;
     localStorage.setItem('country', code);
-    // TODO: 更新新聞列表
+    this.newsService.updateQueryParam({ country: code });
   }
 
 }
