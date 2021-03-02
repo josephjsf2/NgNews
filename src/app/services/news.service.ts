@@ -36,7 +36,7 @@ export class NewsService {
   /**
    * 取得 News API Observable
    */
-  getNewsData(): Observable<any> {
+  getNewsData(): Observable<HeadlineResponse> {
     return of(mockNewsData);
     // return this.http.get<HeadlineResponse>(`${this.apiUrl}?country=${this.queryParam.country}&category=${this.queryParam.category}&q=${this.queryParam.q}&apiKey=${this.queryParam.apiKey}&pageSize=${this.queryParam.pageSize}`);
   }
