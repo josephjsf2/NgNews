@@ -13,6 +13,6 @@ export class NewsContentComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
+    // TODO: 取消訂閱
   }
 }
