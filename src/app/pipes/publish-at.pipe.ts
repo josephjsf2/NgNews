@@ -11,7 +11,7 @@ export class PublishAtPipe implements PipeTransform {
   static ONE_MONTH = 30 * PublishAtPipe.ONE_DAY;
   static ONE_YEAR = 12 * PublishAtPipe.ONE_MONTH;
 
-  transform(value: string, ...args: unknown[]): unknown {
+  transform(value: string | undefined | null, ...args: unknown[]): unknown {
 
     if (!value) {
       return '';
