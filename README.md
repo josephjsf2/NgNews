@@ -16,9 +16,9 @@ run 'npm start' to start project.
 
 ### News-List
 1. 將 news資料呈現至畫面上
-2. 記錄目前選取資料 index，預設為第一筆資料
+2. 記錄目前選取資料，預設為第一筆資料
 3. 透過 click 事件記錄目前 index(ngFor 中可取得目前資料 index => *ngFor="let item of items; let i = index")
-4. 被選取項目套用 class has-background-primary 與 has-text-white-bis
+4. 被選取項目套用 class.has-background-primary 與 class.has-text-white-bis
 
 ### News-Content
 1. 從 NewsList中透過 newsChangedSubject.next方法送出資料
@@ -30,5 +30,4 @@ run 'npm start' to start project.
 1. NewsService updateParamData中發送 next 
 2. Header component中使用 newsService.updateParamData
 3. Main component中使用 newsService.updateParamData
-4. News-List component關鍵自查詢使用 newsService.updateParamData
 5. News-List 訂閱與取消訂閱
