@@ -23,7 +23,7 @@ run 'npm start' to start project.
 ### News-Content
 1. 從 NewsList中透過 newsChangedSubject.next方法送出資料
 2. 從 NewsContent中訂閱 newsChanged$
-3. 套用 NewsContent版型
+3. 套用 NewsContent版型
 4. 使用 publishAt pipe
 
 ### 透過 Subject 觸發 News-List抓取資料
