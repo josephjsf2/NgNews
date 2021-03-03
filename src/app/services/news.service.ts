@@ -20,7 +20,6 @@ export class NewsService {
   queryParam: QueryParams = {
     country: 'us',
     category: 'Business',
-    q: '',
     pageSize: 100,
     apiKey: environment.apiKey
   };
@@ -37,7 +36,7 @@ export class NewsService {
    * 取得 News API Observable
    */
   getNewsData(): Observable<HeadlineResponse> {
-    return of(mockNewsData).pipe(delay(1000));  // 模擬網路 delay
+    return of(mockNewsData).pipe(delay(1000));  // 模擬網路 delay 1s
     // return this.http.get<HeadlineResponse>(`${this.apiUrl}?country=${this.queryParam.country}&category=${this.queryParam.category}&q=${this.queryParam.q}&apiKey=${this.queryParam.apiKey}&pageSize=${this.queryParam.pageSize}`);
   }
 
